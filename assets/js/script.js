@@ -16,9 +16,9 @@ var Questions = [
     }
 ]
 var questionID = 0;
-var Score = 0;
+var score = 0;
 var quizContentEl = document.querySelector("#quiz-content");
-
+var scoreEl = document.querySelector("#totalscore");
 
 function BeginQuiz(questionId) {
     var quizInfoEl = document.createElement("div");
@@ -42,6 +42,7 @@ function checkAnswer(questionId, answers) {
     {
         console.log(answers);
         score+= 10;
+        showScore();
         alert("Correct!");
         questionID++;
     }
@@ -65,9 +66,19 @@ function checkAnswer(questionId, answers) {
 
 function gameOver() {
     var gameOverEl = document.createElement("div");
-    gameOverEl.innerHTML = "<h2>Game Over! <br/> Your Score is: <br/>" + Score + "<h2>";
+    gameOverEl.innerHTML = "<h1>Game Over! <br/> Your Total Score is: <br/>" + score + "<h1>";
     quizContentEl.appendChild(gameOverEl);
 
 }
+// Show the total score on the screen.
+function showScore() {
+    scoreEl.textContent = score;
+}
+
+function startQuiz() {
+    var startTextRemove = document.querySelector("#start");
+    startTextRemove.remove();
+    BeginQuiz(0);
+}
+
 // quizContentEl.addEventListener("click", checkAnswer);
-BeginQuiz(questionID);

@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="score">
-            <h2>Score: <span id="totalscore"></span> </h2>
+            <h2>Score: <span id="totalscore">0</span></h2>
         </div>
         <div class="timer">
             <h2>Timer: <span id="timer"></span></h2>
@@ -26,13 +26,13 @@
         <div id="start">
             <h1>Javascript Quiz Challenge</h1>
             <p>
-                Do you got what it takes to answer these Javascript Questions! <br/> 
+                Do you got what it takes to answer these Javascript Questions? <br/> 
                 Try and beat the highscore! <br/>
                 Rules: <br/>
                 You will lose 10 seconds for every wrong answers. <br/>
                 You will gain 10 points for every correct answers.
             </p>
-            <button id="begin">Start Quiz!</button>
+            <button id="begin" onclick="startQuiz()">Start Quiz!</button>
         </div>
     </main>
     <footer>

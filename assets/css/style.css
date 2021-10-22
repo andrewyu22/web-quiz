@@ -12,6 +12,8 @@
 footer {
     position: fixed;
     bottom: 0;
+    font-size: 30px;
+    left: 45%;
 }
 
 main {
@@ -26,4 +28,11 @@ header {
 
 body {
     background-color: cyan;
+}
+
+#begin {
+    margin: 10px;
+    padding: 30px;
+    font-size: 4rem;
+    font-weight: bold;
 }
