@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="./highscore.html">
+                <h2>View HighScore</h2>
+            </a>
+        </div>
+        <div class="score">
+            <h2>Score: <span id="totalscore"></span> </h2>
+        </div>
+        <div class="timer">
+            <h2>Timer: <span id="timer"></span></h2>
+        </div>
+    </header>
+
+    <main id="quiz-content">
+        <div id="start">
+            <h1>Javascript Quiz Challenge</h1>
+            <p>
+                Do you got what it takes to answer these Javascript Questions! <br/> 
+                Try and beat the highscore! <br/>
+                Rules: <br/>
+                You will lose 10 seconds for every wrong answers. <br/>
+                You will gain 10 points for every correct answers.
+            </p>
+            <button id="begin">Start Quiz!</button>
+        </div>
+    </main>
+    <footer>
+        &copy; 2021 by Andrew Yu
+    </footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
