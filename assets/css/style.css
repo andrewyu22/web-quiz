@@ -25,7 +25,9 @@ header {
     padding: 40px;
     justify-content: space-between;
 }
-
+header h2 {
+    font-size: 40px;
+}
 body {
     background-color: cyan;
 }
@@ -35,4 +37,13 @@ body {
     padding: 30px;
     font-size: 4rem;
     font-weight: bold;
+}
+
+.name {
+    padding: 30px;
+}
+
+.name input, .name button {
+    padding: 15px;
+    font-size: 20px;
 }
