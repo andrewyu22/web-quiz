@@ -20,7 +20,10 @@ var score = 0;
 var quizContentEl = document.querySelector("#quiz-content");
 var scoreEl = document.querySelector("#totalscore");
 var timerEl = document.querySelector("#timer");
+var startText = document.querySelector("#start");
+var storedValue = document.querySelector("#getHighScore");
 var timeLeft = 100;
+var Highscore = [];
 
 function BeginQuiz(questionId) {
 
@@ -41,7 +44,6 @@ function BeginQuiz(questionId) {
 function checkAnswer(questionId, answers) {
     var selectContainer = document.querySelector("#question" + questionID);
     if (answers === Questions[questionId].correctAnswer) {
-        console.log(answers);
         score += 10;
         showScore();
         questionID++;
@@ -78,7 +80,6 @@ function gameOver() {
     gameOverEl.appendChild(HighScoreName);
     gameOverEl.appendChild(submitBtn);
     quizContentEl.appendChild(gameOverEl);
-
 }
 // Show the total score on the screen.
 function showScore() {
@@ -86,8 +87,7 @@ function showScore() {
 }
 
 function startQuiz() {
-    var startTextRemove = document.querySelector("#start");
-    startTextRemove.remove();
+    startText.remove();
     startTimer();
     BeginQuiz(0);
 }
@@ -112,10 +112,38 @@ function startTimer() {
 }
 
 function saveHighScore() {
-    var obj = 
-    {
+    var Totalscore = {
         name: document.querySelector("input").value,
         scores: score
     }
-    localStorage.setItem("Highscore", JSON.stringify(obj));
+    Highscore.push(Totalscore);
+    localStorage.setItem("Highscore", JSON.stringify(Highscore));
+    window.location.href = "highscore.html";
 }
+
+function getHighScore() {
+    var scoreEl = document.createElement("li");
+    scoreEl.className = "score-item";
+    var savedScore = localStorage.getItem("Highscore");
+    if(!savedScore) {
+        return false;
+    }
+    savedScore = JSON.parse(savedScore);
+    for(var i=0; i < savedScore.length; i++) {
+        scoreEl.textContent = savedScore[i].name + (" ") + savedScore[i].scores;
+        console.log(savedScore[i]);
+        storedValue.appendChild(scoreEl);
+    }
+}
+
+function restart() {
+    window.location.href="index.html";
+    quizContentEl.appendChild(startText);
+}
+
+function clearScore() {
+    localStorage.clear();
+    location.reload();
+}
+
+getHighScore();
