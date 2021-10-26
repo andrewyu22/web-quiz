@@ -124,15 +124,25 @@ function saveHighScore() {
 function getHighScore() {
     var scoreEl = document.createElement("li");
     scoreEl.className = "score-item";
+    for(var i=0; i < Highscore.length; i++)
+    {
+        scoreEl.textContent = Highscore[i].name + " " + Highscore[i].scores;
+        storedValue.appendChild(scoreEl);
+    }
+}
+
+function loadScore() {
     var savedScore = localStorage.getItem("Highscore");
     if(!savedScore) {
         return false;
     }
     savedScore = JSON.parse(savedScore);
     for(var i=0; i < savedScore.length; i++) {
-        scoreEl.textContent = savedScore[i].name + (" ") + savedScore[i].scores;
-        console.log(savedScore[i]);
-        storedValue.appendChild(scoreEl);
+        obj = {
+            name: savedScore[i].name,
+            scores: savedScore[i].scores
+        }
+        Highscore.push(obj);
     }
 }
 
@@ -146,4 +156,4 @@ function clearScore() {
     location.reload();
 }
 
-getHighScore();
+loadScore();
