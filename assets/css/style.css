@@ -8,6 +8,7 @@
     margin: 5px;
     font-size: 22px;
     font-weight: bold;
+    background: linear-gradient(red, orange);
 }
 footer {
     position: fixed;
@@ -34,7 +35,6 @@ body {
 
 #begin {
     margin: 10px;
-    padding: 30px;
     font-size: 4rem;
     font-weight: bold;
 }

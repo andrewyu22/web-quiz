@@ -26,7 +26,6 @@ var timeLeft = 100;
 var Highscore = [];
 
 function BeginQuiz(questionId) {
-
     var quizInfoEl = document.createElement("div");
     quizInfoEl.id = "question" + questionID;
     quizInfoEl.className = "btn-container"
@@ -54,7 +53,6 @@ function checkAnswer(questionId, answers) {
     }
     selectContainer.remove();
     if (Questions[questionID] === undefined) {
-        clearInterval();
         gameOver();
     }
     else {
@@ -144,6 +142,9 @@ function loadScore() {
         }
         Highscore.push(obj);
     }
+    Highscore.sort(function(a,b) {
+        return b.scores - a.scores;
+    });
 }
 
 function restart() {
