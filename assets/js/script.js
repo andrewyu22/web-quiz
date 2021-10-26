@@ -122,10 +122,10 @@ function saveHighScore() {
 }
 
 function getHighScore() {
-    var scoreEl = document.createElement("li");
-    scoreEl.className = "score-item";
     for(var i=0; i < Highscore.length; i++)
     {
+        var scoreEl = document.createElement("li");
+        scoreEl.className = "score-item";
         scoreEl.textContent = Highscore[i].name + " " + Highscore[i].scores;
         storedValue.appendChild(scoreEl);
     }
