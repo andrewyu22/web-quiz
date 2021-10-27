@@ -1,18 +1,53 @@
 var Questions = [
     {
-        question: "What is your name?",
-        answers: ["Andrew", "John", "JJ", "Amy"],
-        correctAnswer: "Andrew"
+        question: "What is the correct operator to compare BOTH type and value?",
+        answers: ["==", "===", "!=", "!=="],
+        correctAnswer: "==="
     },
     {
-        question: "What are you from?",
-        answers: ["Manhattan", "Brooklyn", "Queens", "Staten Island"],
-        correctAnswer: "Brooklyn"
+        question: "How do we declare an empty array?",
+        answers: ["var array = []", "var array = ''", "var array = {}", "var array = [{}]"],
+        correctAnswer: "var array = []"
     },
     {
-        question: "What does NY stand for?",
-        answers: ["New Yankees", "New Yoodles", "New York", "New Yzeey"],
-        correctAnswer: "New York"
+        question: "How do we add one to a variable 'i'?",
+        answers: ["i++", "i=i+1", "i+=1", "All of the above"],
+        correctAnswer: "All of the above"
+    },
+    {
+        question: "Which one allows you to save to localstorage?",
+        answers: ["getItem()", "setItem()", "save()", "None of the above"],
+        correctAnswer: "setItem()"
+    },
+    {
+        question: "____ deletes an elements at the end of array",
+        answers: ["delete()", "push()", "pop()", "remove()"],
+        correctAnswer: "pop()"
+    },
+    {
+        question: "Which of the following will allow us to create a new function called 'tasks'?",
+        answers: ["function tasks {}", "function tasks() {}", "tasks()", "function tasks()"],
+        correctAnswer: "function tasks() {}"
+    },
+    {
+        question: "____ appends a new elements to the end of an array, and returns thew new length of an array",
+        answers: ["push()", "concat()", "pop()", "shift()"],
+        correctAnswer: "push()"
+    },
+    {
+        question: "Which logical operators in Javascript represent (AND)",
+        answers: ["&&", "||", "!", "AND"],
+        correctAnswer: "&&"
+    },
+    {
+        question: "____ helps us pause the code at a certain point to find and fix errors within the script",
+        answers: ["console.log()", "break", "pause", "debugger"],
+        correctAnswer: "debugger"
+    },
+    {
+        question: "Which one is a boolean value",
+        answers: ["true", "false", "0", "1", "All of the above"],
+        correctAnswer: "All of the above"
     }
 ]
 var questionID = 0;
@@ -87,7 +122,7 @@ function showScore() {
 function startQuiz() {
     startText.remove();
     startTimer();
-    BeginQuiz(0);
+    BeginQuiz(questionID);
 }
 
 function startTimer() {
@@ -145,11 +180,6 @@ function loadScore() {
     Highscore.sort(function(a,b) {
         return b.scores - a.scores;
     });
-}
-
-function restart() {
-    window.location.href="index.html";
-    quizContentEl.appendChild(startText);
 }
 
 function clearScore() {

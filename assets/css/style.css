@@ -9,6 +9,7 @@
     font-size: 22px;
     font-weight: bold;
     background: linear-gradient(red, orange);
+    flex-wrap: wrap;
 }
 footer {
     position: fixed;
