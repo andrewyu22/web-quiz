@@ -57,7 +57,7 @@ var scoreEl = document.querySelector("#totalscore");
 var timerEl = document.querySelector("#timer");
 var startText = document.querySelector("#start");
 var storedValue = document.querySelector("#getHighScore");
-var timeLeft = 100;
+var timeLeft = 70;
 var Highscore = [];
 
 function BeginQuiz(questionId) {
