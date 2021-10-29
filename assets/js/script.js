@@ -57,6 +57,7 @@ var scoreEl = document.querySelector("#totalscore");
 var timerEl = document.querySelector("#timer");
 var startText = document.querySelector("#start");
 var storedValue = document.querySelector("#getHighScore");
+var check = document.getElementById('checkAnswer');
 var timeLeft = 70;
 var Highscore = [];
 
@@ -78,11 +79,13 @@ function BeginQuiz(questionId) {
 function checkAnswer(questionId, answers) {
     var selectContainer = document.querySelector("#question" + questionID);
     if (answers === Questions[questionId].correctAnswer) {
+        correct();
         score += 10;
         showScore();
         questionID++;
     }
     else {
+        wrong();
         timeLeft-=10;
         questionID++;
     }
@@ -122,7 +125,7 @@ function showScore() {
 function startQuiz() {
     startText.remove();
     startTimer();
-    BeginQuiz(questionID);
+    BeginQuiz(0);
 }
 
 function startTimer() {
@@ -185,6 +188,26 @@ function loadScore() {
 function clearScore() {
     localStorage.clear();
     location.reload();
+}
+
+function correct() {
+    var correct = document.createElement("h3");
+    correct.textContent = "Correct!";
+    correct.className = "check"
+    check.appendChild(correct);
+    setTimeout(function() {
+        correct.remove();
+    },1000);
+}
+
+function wrong() {
+    var wrong = document.createElement("h3");
+    wrong.textContent = "Wrong!";
+    wrong.className = "check";
+    check.appendChild(wrong);
+    setTimeout(function() {
+        wrong.remove();
+    },1000);
 }
 
 loadScore();
