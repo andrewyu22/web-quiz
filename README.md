@@ -5,6 +5,7 @@
 Javascript Quiz!!
 
 Test yourself to see how well you know your javascript. <br/>
+You have 70 seconds to finish 10 questions!
 Rule: 
 1) You will lose 10 seconds for every wrong answers.
 2) You will gain 10 points for every correct answers.
